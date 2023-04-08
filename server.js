@@ -2,14 +2,14 @@
 //SERVIDOR HTTP BASICO
 //inicio del servidor
 
-var http = require("http");
-var url = require("url");
+import { createServer } from "http";
+import { parse } from "url";
 
 
 function init(route, handle){
     function onRequest(request, response){
-        var pathname = url.parse(request.url).pathname;
-        var idpath = url.parse(request.url).query;
+        var pathname = parse(request.url).pathname;
+        var idpath = parse(request.url).query;
         var postData = "";
 
         request.setEncoding("utf-8");
@@ -24,7 +24,8 @@ function init(route, handle){
 
     }
     
-    http.createServer(onRequest).listen(8888);
+    createServer(onRequest).listen(8888);
 } 
 
-exports.init = init;
+const _init = init;
+export { _init as init };

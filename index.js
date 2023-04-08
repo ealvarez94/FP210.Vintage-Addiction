@@ -1,18 +1,18 @@
-var server = require("./server");
-var router = require("./router");
-var requestHandlers = require("./src/controlers/requestHandlers");
+var server = require("./server");import { init } from "./server";
+var router = require("./router");import { route } from "./router";
+var requestHandlers = require("./src/controlers/requestHandlers");import { init as _init, register, login, gameApp, validatedRegister, serveImg, ocupation, disconnect, ocupationcheck, logOut } from "./src/controlers/requestHandlers";
 
 var handle = {};
-handle["/"] = requestHandlers.init;
-handle["/home"] =requestHandlers.init;
-handle["/register"]=requestHandlers.register;
-handle["/login"]=requestHandlers.login;
-handle["/game-app"]=requestHandlers.gameApp;
-handle["/validated-register"]=requestHandlers.validatedRegister;
-handle["/assets/avatars"]= requestHandlers.serveImg;
-handle["/ocupation"]= requestHandlers.ocupation;
-handle["/disconnect"]= requestHandlers.disconnect;
-handle["/ocupationcheck"]= requestHandlers.ocupationcheck;
-handle["/logOut"] = requestHandlers.logOut;
+handle["/"] = requestHandlers.init_init;
+handle["/home"] =requestHandlers.init_init;
+handle["/register"]=requestHandlers.registerregister;
+handle["/login"]=requestHandlers.loginlogin;
+handle["/game-app"]=requestHandlers.gameAppgameApp;
+handle["/validated-register"]=requestHandlers.validatedRegistervalidatedRegister;
+handle["/assets/avatars"]= requestHandlers.serveImgserveImg;
+handle["/ocupation"]= requestHandlers.ocupationocupation;
+handle["/disconnect"]= requestHandlers.disconnectdisconnect;
+handle["/ocupationcheck"]= requestHandlers.ocupationcheckocupationcheck;
+handle["/logOut"] = requestHandlers.logOutlogOut;
 
-server.init(router.route, handle);
+server.initinit(router.routeroute, handle);
